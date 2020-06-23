@@ -9,23 +9,24 @@ import Particles from 'react-particles-js';
 import Clarifai from 'clarifai'
 import errImg from './components/FaceRecognition/err404.png'
 
-function App() {
 
-  const particalesOptions = {
-    particles: {
-      line_linked: {
-        shadow: {
-          enable: true,
-          color: "#3ca901",
-          blur: 5
-        }
+const particalesOptions = {
+  particles: {
+    line_linked: {
+      shadow: {
+        enable: true,
+        color: "#3ca901",
+        blur: 5
       }
     }
   }
+}
 
-  const app = new Clarifai.App({
-    apiKey: '257c0c8f72a940d8b434f2665213e725'
-  });
+const app = new Clarifai.App({
+  apiKey: '257c0c8f72a940d8b434f2665213e725'
+});
+
+function App() {
 
   const [input, setInput] = useState('')
   const [imgURL, setImgURL] = useState('')
@@ -33,22 +34,27 @@ function App() {
   const [err, setErr] = useState('')
 
   const calculateFaceLocation = (data) => {
-    console.log(data)
-    const age = data.outputs[0].data.regions[0].data.concepts[0].name;
-    const possibility = data.outputs[0].data.regions[0].data.concepts[0].value;
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputImage')
     const width = Number(image.width);
     const height = Number(image.height);
-    return {
-      age,
-      possibility,
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
-    }
+    const output = data.outputs[0].data.regions;
+    console.log(output);
+    const outputs = output.map(x => {
+      const age = x.data.concepts[0].name;
+      const possibility = x.data.concepts[0].value;
+      const clarifaiFace = x.region_info.bounding_box;
+      return {
+        age,
+        possibility,
+        leftCol: clarifaiFace.left_col * width,
+        topRow: clarifaiFace.top_row * height,
+        rightCol: width - (clarifaiFace.right_col * width),
+        bottomRow: height - (clarifaiFace.bottom_row * height)
+      }
 
+    })
+    console.log(outputs);
+    return outputs;
   }
   const onChangeInput = (e) => {
     setInput(e.target.value)
@@ -62,7 +68,7 @@ function App() {
         setBox(calculateFaceLocation(response))
       )
       .catch(err => {
-        setErr("Sorry,The url is not valid. Please try another one.")
+        setErr("Sorry, the url is not valid. Please try another one. Example：https://familybuildersok.org/wp-content/uploads/2019/02/happy-family.jpg")
         setImgURL(errImg);
       })
   }
@@ -70,7 +76,7 @@ function App() {
     <div className="App">
       <Particles className="particles" params={particalesOptions} />
       <Navigation><Logo /></Navigation>
-      <Rank />
+      {/*   <Rank /> */}
       <ImageLinkForm input={input} onChangeInput={onChangeInput} onSubmit={onSubmit} err={err} />
       <FaceRecognition imgURL={imgURL} box={box} />
     </div>

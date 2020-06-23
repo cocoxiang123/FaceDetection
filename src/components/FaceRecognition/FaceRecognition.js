@@ -7,19 +7,14 @@ function FaceRecognition({ imgURL, box }) {
         <div className="center face" >
             <div className="face-container mt2">
                 <img src={imgURL} alt="" id="inputImage" />
-                <div className="bounding-box"
-                    style={{
-                        top: box.topRow,
-                        right: box.rightCol,
-                        bottom: box.bottomRow,
-                        left: box.leftCol
-                    }}>
-                    {box.age &&
-                        <BoundingBox box={box} />
-                    }
-                </div>
+
+                {box.length &&
+                    box.map((x, index) => <BoundingBox box={x} key={index} />)
+
+                }
             </div>
         </div>
+
     )
 }
 

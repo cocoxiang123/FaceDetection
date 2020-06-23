@@ -3,8 +3,8 @@
 }
 .face img{
     display: flex;
-    width:350px;
-    height:auto;
+    width:500px;
+    min-height:200px;
     margin:5px;
 }
 .bounding-box{
