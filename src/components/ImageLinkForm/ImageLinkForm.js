@@ -3,10 +3,10 @@ import './ImageLinkForm.css'
 
 function ImageLinkForm({ input, onChangeInput, onSubmit, err }) {
     return (
-        <div>
+        <div className="container-fluid">
             <p className="f3 text-center">This will magically detect faces in your pictures, give it a try.</p>
             <div className="form pa4 br3 shadow-5 row m-auto">
-                <span className="f4 pa2">URL:</span>
+                <span className="f4 pa2 col-12 col-md-1">URL:</span>
                 <input className='f4 pa2 w-70 center col-12 col-md-8'
                     value={input}
                     onChange={onChangeInput}
