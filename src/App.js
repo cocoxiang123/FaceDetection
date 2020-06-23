@@ -23,7 +23,7 @@ const particalesOptions = {
 }
 
 const app = new Clarifai.App({
-  apiKey: '257c0c8f72a940d8b434f2665213e725'
+  apiKey: '5dbb1070533f43c89ea11cdf5c7d4480'
 });
 
 function App() {
