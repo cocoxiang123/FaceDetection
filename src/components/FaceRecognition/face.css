@@ -4,9 +4,11 @@
 .face img{
     display: flex;
     width:500px;
-    min-height:200px;
+    height:auto;
     margin:5px;
+    
 }
+
 .bounding-box{
     position: absolute;
     box-shadow: 0 0 0 3px #149df2 inset;
@@ -20,6 +22,7 @@
     top: 0;
     left: 0;
     transform: translateY(-100%);
+    z-index: 5;
 }
 .bounding-box__concept{
     background: #149df2;
@@ -33,5 +36,5 @@
     align-items: baseline;
     font-weight: 700;
     padding: 1px 3px;
-    border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0; 
 }

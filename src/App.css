@@ -6,8 +6,8 @@ body{
 }
 nav p{
     text-decoration: underline;
-    font-size: 1.2rem; 
-    padding:1.5em;   
+    font-size: 1.4rem; 
+    padding:1em 0.5em;   
 }
 nav p:hover{
     color:#808080;
@@ -27,4 +27,11 @@ button{
     left:0;
     right:0;
     z-index: -1;
+}
+.welcome{
+    text-decoration: none;
+}
+.welcome:hover{
+    cursor: default;
+    color:black;
 }

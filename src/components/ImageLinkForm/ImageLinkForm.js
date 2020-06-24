@@ -4,7 +4,7 @@ import './ImageLinkForm.css'
 function ImageLinkForm({ input, onChangeInput, onSubmit, err }) {
     return (
         <div className="container-fluid">
-            <p className="f3 text-center">This will magically detect faces in your pictures, give it a try.</p>
+            <p className="f3 text-center">This will magically detect faces in your pictures. Give it a try!</p>
             <div className="form pa4 br3 shadow-5 row m-auto">
                 <span className="f4 pa2 col-12 col-md-1">URL:</span>
                 <input className='f4 pa2 w-70 center col-12 col-md-8'
@@ -16,7 +16,9 @@ function ImageLinkForm({ input, onChangeInput, onSubmit, err }) {
                     className='w-30 grow f4 link ph3 pv2 dib white bg-light-purple col-12 col-md-3'>
                     Detect
                     </button>
+
             </div>
+            <p className="f6 text-center p-2 text-muted"> Example:https://familybuildersok.org/wp-content/uploads/2019/02/happy-family.jpg</p>
             <p className="center m-2">{err}</p>
         </div>
     )
