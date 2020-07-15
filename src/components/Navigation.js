@@ -10,12 +10,12 @@ function Navigation({ logIn, onClickSignOut }) {
 
             {
                 logIn ?
-                    <div className="d-flex d-row">
+                    <div className="d-flex flex-column flex-sm-row">
                         <p className="welcome">Welcome!</p>
                         <p onClick={onClickSignOut}>Sign Out</p>
                     </div>
                     :
-                    <div className="d-flex d-row">
+                    <div className="d-flex flex-column flex-sm-row">
                         <Link to="/signIn" className="text-dark"><p>Sign In</p></Link>
                         <Link to="/register" className="text-dark"><p>Register</p></Link>
                     </div>

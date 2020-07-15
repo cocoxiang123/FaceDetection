@@ -5,7 +5,7 @@ function Register({ onLogInSuccess }) {
     return (
         <div className="signContainer">
             <div className="d-flex justify-content-center h-100">
-                <div className="card">
+                <div className="card m-2 mt-4">
                     <div className="card-header">
                         <h3>Register</h3>
                     </div>

@@ -6,7 +6,7 @@ function SignIn({ onLogInSuccess }) {
     return (
 
         <div className="signContainer">
-            <div className="d-flex justify-content-center h-100">
+            <div className="d-flex justify-content-center h-100 m-2 mt-4">
                 <div className="card">
 
                     <div className="card-header">
